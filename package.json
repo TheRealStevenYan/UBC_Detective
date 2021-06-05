@@ -1,0 +1,14 @@
+{
+  "name": "ubc-detective",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node src/scrapeRMP.js"
+  },
+  "author": "Steven Yan",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^10.0.0"
+  }
+}
