@@ -1,8 +1,10 @@
-const puppeteer = require('puppeteer')
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const puppeteer = require('puppeteer');
 
 
 
-class RMPScraper {
+export default class RMPScraper {
     /*
     This class serves to scrape RateMyProfessor for professor data by doing the following:
     Searches the RateMyProfessor website under UBC's school ID with a given professor name.
@@ -34,9 +36,9 @@ class RMPScraper {
             await this.getProfData();
         }
 
-        return this.data;
-
         await browser.close();
+
+        return this.data;
     }
 
     // Gets all applicable info about the prof.
@@ -96,9 +98,9 @@ class RMPScraper {
                 return false;
             });
 
-        let content = await this.page.$$eval(cssSelector, (schoolNames) => {
+        let content = await this.page.$$eval(cssSelector, (elements) => {
             let textContent = [];
-            schoolNames.forEach((element) => {
+            elements.forEach((element) => {
                 textContent.push(element.textContent);
             })
             return textContent;
