@@ -10,6 +10,7 @@
   "author": "Steven Yan",
   "license": "ISC",
   "dependencies": {
+    "node": "^16.1.0",
     "puppeteer": "^10.0.0"
   }
 }
