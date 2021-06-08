@@ -13,7 +13,6 @@ export default class RMPScraper {
     constructor(name) {
         this.name = name;
         this.data = {
-            name      : this.name,
             quality   : 'No Data',
             difficulty: 'No Data',
             takeAgain : 'No Data',
@@ -29,16 +28,18 @@ export default class RMPScraper {
 
         const browser = await puppeteer.launch();
         this.page = await browser.newPage();
-
         await this.page.goto(search_url);
 
-        if (await this.rmpHasProf()) {
-            await this.getProfData();
-        }
+        let hasProf = await this.rmpHasProf();
 
+        if (hasProf) await this.getProfData();
+
+        await this.page.close();
         await browser.close();
 
-        return this.data;
+        if (hasProf) return this.data;
+
+        return null;
     }
 
     // Gets all applicable info about the prof.

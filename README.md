@@ -1,7 +1,5 @@
 # UBC Detective
 
-### Work in progress
-
 ---
 
 An external program used to gather data to be used in my WhosMyProfessor Google Chrome extension.
@@ -20,4 +18,4 @@ Written in JavaScript, compiled in Node.js
 
 Simply do ```npm install``` to install all Node.js dependencies, then run with ```npm start```.
 
-The JSON file will be saved at ```<Coming soon>```.
+The JSON file will be saved at ```src/json/data.json```.
